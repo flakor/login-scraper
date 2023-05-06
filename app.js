@@ -64,9 +64,9 @@ const simularlogin = async () =>{
 
     const loginPassword = await page.waitForSelector('input[name="Clave"]');
 
-    await loginInput.type("pablo.ortiz.barra@gmail.com");
+    await loginInput.type("");
 
-    await loginPassword.type("Emt.532%"); 
+    await loginPassword.type(""); 
 
     await page.click("button[type=submit]"); //login enter click por class css
 
