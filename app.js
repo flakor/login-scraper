@@ -3,8 +3,11 @@ const puppeteer = require('puppeteer');
 const randomUseragent = require('random-useragent');
 const fs = require('fs')
 
-let data = []
 let user = []
+
+let username = 'pablo.ortiz.barra'
+let pass = 'Exxx'
+
 
 saveCookies = (data) => {
     let cookies = []
@@ -64,9 +67,9 @@ const simularlogin = async () =>{
 
     const loginPassword = await page.waitForSelector('input[name="Clave"]');
 
-    await loginInput.type("");
+    await loginInput.type(username);
 
-    await loginPassword.type(""); 
+    await loginPassword.type(pass); 
 
     await page.click("button[type=submit]"); //login enter click por class css
 
