@@ -74,7 +74,7 @@ const simularlogin = async () =>{
     await page.screenshot({ path: 'example.png'}); //screenshot de la pagina
   
     const cookies = await page.cookies();
-   // console.log(cookies);
+   
     saveCookies(cookies);
 
     const closeModal = '.new-modal-close';
@@ -89,16 +89,18 @@ const simularlogin = async () =>{
 
             const datos = await content.$('span')
             const getUser = await page.evaluate(datos => datos.innerText, datos)
-            //console.log(usuario);
-            //console.log(content);
-            console.log(getUser);
+           
+            //console.log(getUser);
+            user.push(getUser)
+
+          
         }
 
-   // console.log(nombre);
-    //const apellido = await page.waitForSelector('input[name="Clave"]');
-
-    await page.screenshot({ path: 'example.png'});
-    //https://www.jumbo.cl/mis-datos
+   console.log(user);
+   fs.writeFile('usuario.txt', JSON.stringify(user), (err) =>{
+    if (err) return console.error(err);
+});
+    await page.screenshot({ path: 'datos.png'});
    
 
 }
@@ -135,5 +137,5 @@ const loginCookies = async () =>{
 
 simularlogin()
 
-//loginCookies()
+
  
